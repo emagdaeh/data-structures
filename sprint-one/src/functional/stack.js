@@ -12,12 +12,14 @@ var Stack = function() {
     numKey++;
   };
 
-  someInstance.pop = function(value) {
-    storage[numKey] = value;
+  someInstance.pop = function() {
+    var result = storage[numKey - 1];
+    storage[numKey - 1] = undefined;
     numKey--;
+    return result;
   };
 
-  someInstance.size = function(value) {
+  someInstance.size = function() {
     if (numKey < 0) {
       return 0;
     } else {
