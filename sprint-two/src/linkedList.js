@@ -21,26 +21,59 @@ var LinkedList = function() {
     */
     // If no node present in "list", node assined to "head"
     // Else node added to list
-    // Increase length of list by 1
+    // Increase length of list by 1 - may not be necessary
+
+    console.log('ran this');
+    list.head = new Node(value);
+    list.tail = list.head;
+
+    //console.log(list.head);
+    list.tail = new Node(value);
+
+    //node.next = new Node();
   };
 
   list.removeHead = function() {
     // I: Value? Function?
     // O: The value of removed head
-    // Need to move head designation node to the position the pointed to position
-    // Reduce the total "length" of the list by 1
+    // If head is null, set a return that the test wants - probably not necessary
+    // Need to move head designation node to the pointed to position
+    // Reduce the total "length" of the list by 1 - may not be necessary
+
+    //Need lookup function to determine what head is pointing to
+    //Save a reference to what the head note was pointing to
+    var result = list.head;
+
+    list.head = {};// node with counter++ to indicate next spot
+
+    return result;
   };
 
   list.contains = function(target) {
     // I: Node
     // O: Boolean
-    // Find specific node based on target
+    // Find specific node based on target with conditional
+    // Return true if present
+    // Else return false
+
+  /*
+  var list = {
+  head: null,
+  tail: null,
+  addToTail: function(value) {
+  },
+  removeHead: function() {
+  },
+  contains: function(target) {
+  }
+} */
+    //Need a lookup function
   };
 
   return list;
 };
 
-
+var counter = 0;
 // Node generator function
 var Node = function(value) {
   // I: Key/value pair
@@ -50,9 +83,11 @@ var Node = function(value) {
 
   // Use "new" and/or "this"?
   node.value = value;
-  node.next = null; // new Node pointer
-
+  node.next = counter; // new Node pointer - need lookup function to determine what head is pointing to
+  counter++;
   return node;
+  //what is returned?
+  // node (which equals)  {value: 3 (for example), next: null}
 };
 
 /*
