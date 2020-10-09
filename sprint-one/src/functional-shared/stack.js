@@ -10,7 +10,6 @@ var Stack = function() {
   return instance;
 };
 
-
 var stackMethods = {
   push: function(value) {
     this.storage[this.numKey] = value;
