@@ -8,13 +8,10 @@ var LinkedList = function() {
       var createdNode = Node(value);
       list.head = createdNode;
       list.tail = createdNode;
-      console.log('tail1: ', list.tail);
     } else {
       var createdNode = Node(value);
       list.tail.next = createdNode;
       list.tail = createdNode;
-      console.log('tail2: ', list.tail);
-      console.log(list);
     }
   };
 

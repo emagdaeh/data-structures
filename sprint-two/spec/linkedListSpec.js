@@ -37,13 +37,10 @@ describe('linkedList', function() {
   });
 
   it('should contain a value that was added', function() {
-    console.log('before');
     linkedList.addToTail(4);
     linkedList.addToTail(5);
-    console.log('after');
     expect(linkedList.contains(4)).to.equal(true);
     expect(linkedList.contains(5)).to.equal(true);
-    console.log('ran contains 5');
     expect(linkedList.contains(6)).to.equal(false);
   });
 
