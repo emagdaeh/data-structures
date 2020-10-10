@@ -1,6 +1,6 @@
 var LinkedList = function() {
   var list = {};
-  // Done? Should be null because empty list to start
+
   list.head = null;
   list.tail = null;
 
@@ -8,29 +8,19 @@ var LinkedList = function() {
     // I: Value
     // O: None possibly?
     // Generate new node from node function
-
-    /*
-    Node function is the value above, and it looks like this:
-    new Node = {value: null}
-    reset null to equal next new node plus or minus assigning
-    it to tail
-
-    new Node(value) {
-
-    };
-    */
     // If no node present in "list", node assined to "head"
     // Else node added to list
     // Increase length of list by 1 - may not be necessary
 
-    console.log('ran this');
-    list.head = new Node(value);
-    list.tail = list.head;
+    var createdNode = new Node(value);
 
-    //console.log(list.head);
-    list.tail = new Node(value);
+    if (!this.head) {
+      this.head = createdNode;
+    } else {
 
-    //node.next = new Node();
+      tail.next = createdNode;
+    }
+
   };
 
   list.removeHead = function() {
@@ -40,8 +30,6 @@ var LinkedList = function() {
     // Need to move head designation node to the pointed to position
     // Reduce the total "length" of the list by 1 - may not be necessary
 
-    //Need lookup function to determine what head is pointing to
-    //Save a reference to what the head note was pointing to
     var result = list.head;
 
     list.head = {};// node with counter++ to indicate next spot
@@ -55,19 +43,6 @@ var LinkedList = function() {
     // Find specific node based on target with conditional
     // Return true if present
     // Else return false
-
-  /*
-  var list = {
-  head: null,
-  tail: null,
-  addToTail: function(value) {
-  },
-  removeHead: function() {
-  },
-  contains: function(target) {
-  }
-} */
-    //Need a lookup function
   };
 
   return list;
@@ -81,13 +56,10 @@ var Node = function(value) {
   // Create new object
   var node = {};
 
-  // Use "new" and/or "this"?
   node.value = value;
-  node.next = counter; // new Node pointer - need lookup function to determine what head is pointing to
+  node.next = counter;
   counter++;
   return node;
-  //what is returned?
-  // node (which equals)  {value: 3 (for example), next: null}
 };
 
 /*
