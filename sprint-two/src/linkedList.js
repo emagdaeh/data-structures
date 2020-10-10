@@ -2,7 +2,7 @@ var LinkedList = function() {
   var list = Object.create(LinkedList.methods);
   list.head = null;
   list.tail = null;
-  list.length = 0;
+  //list.length = 0;
   //console.log(list);
   //list = {head: {value: x, next: pointer}, tail: {value: y, next: null}, length: x, addtoTail: function{}, removeHead: function{}, contains: function()}
   return list;
@@ -20,17 +20,19 @@ LinkedList.methods = {
     createdNode.next = this.head;
     console.log('createdNode: ', createdNode);
     */
+
+    // first tail added keeps next: null
+    // reassign "current tail" next pointer to the new node
+    // then reassign "new tail" which will default contain next: null
     if (!this.head) {
       var createdNode = Node(value);
       this.head = createdNode;
       this.tail = createdNode;
     } else {
       var createdNode = Node(value);
+      this.tail.next = createdNode;
       this.tail = createdNode;
-      this.head.next = length;
     }
-
-    this.length++;
   },
 
   removeHead: function() {
@@ -41,16 +43,14 @@ LinkedList.methods = {
     // return value of head
     // somehow reassign head to whatever was pointed at
     var result = this.head.value;
-    console.log(result);
-
-    this.head = this.tail;
-    // QUESTION FOR HELP DESK, IS THIS ACCEPTABLE?
+    //this.head = this.tail <-- what we had
+    this.head = this.head.next; // <-- is what I did here clear?
 
     return result;
   },
 
   contains: function(target) {
-    //ANOTHER QUESTION IS THIS BELOW CHEATING?
+    //
     if (target === this.tail.value || target === this.head.value ) {
       return true;
     } else {

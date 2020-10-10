@@ -52,4 +52,21 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should be able to detect if there is a node between head and tail', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    linkedList.addToTail(7);
+    expect(linkedList.contains(6)).to.equal(true);
+  });
+
+  it('should remove head and reassign to next node', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    linkedList.addToTail(7);
+    linkedList.removeHead();
+    expect(linkedList.head.value).to.equal(5);
+  });
+
 });
