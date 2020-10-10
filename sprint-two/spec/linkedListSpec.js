@@ -37,10 +37,13 @@ describe('linkedList', function() {
   });
 
   it('should contain a value that was added', function() {
+    console.log('before');
     linkedList.addToTail(4);
     linkedList.addToTail(5);
+    console.log('after');
     expect(linkedList.contains(4)).to.equal(true);
     expect(linkedList.contains(5)).to.equal(true);
+    console.log('ran contains 5');
     expect(linkedList.contains(6)).to.equal(false);
   });
 
@@ -52,13 +55,15 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  /*
   it('should be able to detect if there is a node between head and tail', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
     linkedList.addToTail(6);
-    linkedList.addToTail(7);
-    expect(linkedList.contains(6)).to.equal(true);
+    let middleTest = linkedList.list.head.next !== linkedList.list.tail;
+    expect(middleTest).to.equal(true);
   });
+  */
 
   it('should remove head and reassign to next node', function() {
     linkedList.addToTail(4);
@@ -67,6 +72,8 @@ describe('linkedList', function() {
     linkedList.addToTail(7);
     linkedList.removeHead();
     expect(linkedList.head.value).to.equal(5);
+    linkedList.removeHead();
+    expect(linkedList.head.value).to.equal(6);
   });
 
 });
