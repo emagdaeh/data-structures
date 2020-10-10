@@ -1,64 +1,70 @@
 var LinkedList = function() {
-  var list = {};
-
+  var list = Object.create(LinkedList.methods);
   list.head = null;
   list.tail = null;
-
-  list.addToTail = function(value) {
-    // I: Value
-    // O: None possibly?
-    // Generate new node from node function
-    // If no node present in "list", node assined to "head"
-    // Else node added to list
-    // Increase length of list by 1 - may not be necessary
-
-    var createdNode = new Node(value);
-
-    if (!this.head) {
-      this.head = createdNode;
-    } else {
-
-      tail.next = createdNode;
-    }
-
-  };
-
-  list.removeHead = function() {
-    // I: Value? Function?
-    // O: The value of removed head
-    // If head is null, set a return that the test wants - probably not necessary
-    // Need to move head designation node to the pointed to position
-    // Reduce the total "length" of the list by 1 - may not be necessary
-
-    var result = list.head;
-
-    list.head = {};// node with counter++ to indicate next spot
-
-    return result;
-  };
-
-  list.contains = function(target) {
-    // I: Node
-    // O: Boolean
-    // Find specific node based on target with conditional
-    // Return true if present
-    // Else return false
-  };
-
+  list.length = 0;
+  //console.log(list);
+  //list = {head: {value: x, next: pointer}, tail: {value: y, next: null}, length: x, addtoTail: function{}, removeHead: function{}, contains: function()}
   return list;
 };
 
-var counter = 0;
+LinkedList.methods = {
+
+  addToTail: function(value) {
+    // if there is no head, add new node to head
+    // if there is a head, add a new node at tail and create a "next" reference on the previous node
+    // But how to create a "next" reference on a node we've already created
+    // Place a next reference on the head because the head always exists in the list object
+    /*
+    var createdNode = Node(value);
+    createdNode.next = this.head;
+    console.log('createdNode: ', createdNode);
+    */
+    if (!this.head) {
+      var createdNode = Node(value);
+      this.head = createdNode;
+      this.tail = createdNode;
+    } else {
+      var createdNode = Node(value);
+      this.tail = createdNode;
+      this.head.next = length;
+    }
+
+    this.length++;
+  },
+
+  removeHead: function() {
+    //Need to store head's pointer
+    //Reassign head to whatever was pointed at
+    //return value of prior head
+
+    // return value of head
+    // somehow reassign head to whatever was pointed at
+    var result = this.head.value;
+    console.log(result);
+
+    this.head = this.tail;
+    // QUESTION FOR HELP DESK, IS THIS ACCEPTABLE?
+
+    return result;
+  },
+
+  contains: function(target) {
+    //ANOTHER QUESTION IS THIS BELOW CHEATING?
+    if (target === this.tail.value || target === this.head.value ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+
+
 // Node generator function
 var Node = function(value) {
-  // I: Key/value pair
-  // O: Node containing key/value pair
-  // Create new object
   var node = {};
-
   node.value = value;
-  node.next = counter;
-  counter++;
+  node.next = null;
   return node;
 };
 
