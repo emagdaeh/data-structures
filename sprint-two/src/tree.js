@@ -1,34 +1,25 @@
 var Tree = function(value) {
+
   var newTree = {};
   newTree.value = value;
-
-  // your code here
-  newTree.children = []; // fix me
-  //Value of children should be an array
-  //Place to put new nodes from addChild method
-  //Incorporate value for further nodes to target
+  newTree.children = [];
   _.extend(newTree, treeMethods);
-  console.log('new tree: ', newTree);
 
   return newTree;
 };
 
 var treeMethods = {};
 
-treeMethods.addChild = function(thing) {
-  if (this.newTree === undefined) {
-    this.newTree[this.value] = thing;
-    console.log(this.newTree);
-  }
+// called by the outside (child == value you want to add to the tree)
+treeMethods.addChild = function(existingChild) {
   //I: Some value
   //O: Node
   // Set variable to hold value of child
   // Set variable to be a target of a node Tree
   // Add to the Tree
-  if (this.newTree !== undefined) {
-    console.log('this.children: ', this.children);
-    this.children.push(thing);
-  }
+
+  var childObject = Tree(existingChild);
+  this.children.push(childObject);
 };
 
 treeMethods.contains = function(target) {
@@ -42,14 +33,16 @@ treeMethods.contains = function(target) {
     return true;
   } else {
     for (var i = 0; i < this.children.length; i++) {
-      this.contains(this.children[i]);
+      var childObject = this.children[i];
+      var wasInChild = childObject.contains(target);
+      if (wasInChild) {
+        return true;
+      }
     }
   }
   return false;
 };
 
-
-
 /*
- * Complexity: What is the time complexity of the above functions? Linear
- */
+* Complexity: What is the time complexity of the above functions? Linear
+*/
