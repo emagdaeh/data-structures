@@ -19,6 +19,7 @@ var BinarySearchTree = function(value) {
 
   obj.left = undefined;
   obj.right = undefined;
+  obj.children = [];
   obj.value = value;
 
   return obj;
