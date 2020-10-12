@@ -17,7 +17,6 @@ treeMethods.addChild = function(existingChild) {
   // Set variable to hold value of child
   // Set variable to be a target of a node Tree
   // Add to the Tree
-
   var childObject = Tree(existingChild);
   this.children.push(childObject);
 };

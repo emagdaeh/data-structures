@@ -2,14 +2,21 @@
 
 // Instantiate a new graph
 var Graph = function() {
+  this.children = [];
+  this.value = value;
 };
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  //Conditional check for node
+  //If found return true
+  //Else recurse through nodes to look for input node equality
+  //Return false if never found
 };
 
 // Removes a node from the graph.
