@@ -3,11 +3,6 @@ var BinarySearchTree = function(value) {
 };
 */
 
-/*
- * Complexity: What is the time complexity of the above functions?
- */
-
-
 var BinarySearchTree = function(value) {
   //I: Target value to search for in the tree
   //O: Value
@@ -22,21 +17,34 @@ var BinarySearchTree = function(value) {
 
   var obj = Object.create(BinarySearchTree.methods);
 
-
+  obj.left = undefined;
+  obj.right = undefined;
+  obj.value = value;
 
   return obj;
 };
 
 BinarySearchTree.methods = {};
 
-BinarySearchTree.methods.insert = function() {
-
+BinarySearchTree.methods.insert = function(value) {
+  //Conditional check for value and current node value
+  //Else go left or right depending on value relation to node value
+  //Recurse over child nodes until placement spot for value is found
+  //Place value in new node at left or right depending on compared values
 };
 
-BinarySearchTree.methods.contains = function() {
-
+BinarySearchTree.methods.contains = function(value) {
+  //Conditional check for value at root
+  //Else iterate through the tree performing conditional check
+  //Return true if found
+  //Return false at end of function once every recursion has run
 };
 
-BinarySearchTree.methods.depthFirstLog = function() {
-
+BinarySearchTree.methods.depthFirstLog = function(callback) {
+  //Iterate over nodes in tree
+  //Perform callback function on each node
 };
+
+/*
+ * Complexity: What is the time complexity of the above functions? Linear
+ */
